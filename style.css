@@ -1,8 +1,32 @@
+/* 0. Theme Colors */
+:root {
+    --background-color: #FFFFFF;
+    --text-color: #000000;
+    --header-footer-color: #87CEEB;
+    --card-background-color: #F0F8FF;
+    --card-border-color: #D1E5F0;
+    --accent-color: #1E3A5F;
+    --button-hover-color: #B8DFF0;
+}
+
+
+/* Dark Theme Colors */
+[data-theme="dark"] {
+    --background-color: #0F172A;
+    --text-color: #F1F5F9;
+    --header-footer-color: #1E293B;
+    --card-background-color: #1E293B;
+    --card-border-color: #334155;
+    --accent-color: #7DD3FC;
+    --button-hover-color: #334155;
+}
+
+
 /* 1. Global Styles */
 body {
-    background-color: white;
+    background-color: var(--background-color);
     font-family: "Segoe UI", Arial, sans-serif;
-    color: black;
+    color: var(--text-color);
     font-size: 1rem;
     line-height: 1.5;
     margin: 0;
@@ -14,7 +38,7 @@ body {
 
 /* 2. Header and Navigation */
 header {
-    background-color: #87CEEB;
+    background-color: var(--header-footer-color);
     padding: 1em;
 }
 
@@ -43,7 +67,7 @@ nav a:hover {
 }
 
 nav a:focus-visible {
-    outline: 2px solid #1E3A5F;
+    outline: 2px solid var(--accent-color);
     outline-offset: -3px;
     background-color: transparent;
     border-radius: 12px;
@@ -70,7 +94,7 @@ section {
 
 /* 5. Footer */
 footer {
-    background-color: #87CEEB;
+    background-color: var(--header-footer-color);
     padding: 1em;
     text-align: center;
 }
@@ -104,8 +128,8 @@ footer {
     align-items: center;
     gap: 1rem;
     padding: 1.5rem;
-    background-color: #F0F8FF;
-    border: 1px solid #D1E5F0;
+    background-color: var(--card-background-color);
+    border: 1px solid var(--card-border-color);
     border-radius: 12px;
 }
 
@@ -119,8 +143,8 @@ footer {
 
 /* Carousel Navigation Buttons */
 .carousel button {
-    background-color: #87CEEB;
-    color: #1E3A5F;
+    background-color: var(--header-footer-color);
+    color: var(--accent-color);
     border: none;
     border-radius: 50%;
     width: 2.75rem;
@@ -132,11 +156,11 @@ footer {
 
 /* Adding Hovering Effect on Buttons */
 .carousel button:hover {
-    background-color: #B8DFF0;
+    background-color: var(--button-hover-color);
 }
 
 .carousel button:focus-visible {
-    outline: 2px solid #1E3A5F;
+    outline: 2px solid var(--accent-color);
     outline-offset: 3px;
 }
 
@@ -167,4 +191,83 @@ footer {
         min-width: 0;
         overflow-wrap: break-word;
     }
+}
+
+
+/* 10. Technical Skills and Experience */
+.skills-category {
+    background-color: var(--card-background-color);
+    border: 1px solid var(--card-border-color);
+    border-radius: 12px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+
+
+/* 11. Technical Skills Grid */
+@media (min-width: 601px) {
+    #skills-experience {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1rem;
+    }
+
+    #skills-experience h2 {
+        grid-column: 1 / -1;
+    }
+
+    .skills-category {
+        margin-bottom: 0;
+    }
+}
+
+
+/* 12. Technical Skills Lists */
+.skills-category ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.skills-category li {
+    margin-bottom: 0.5rem;
+}
+
+
+/* 13. Carousel Link Colors */
+.carousel-content a {
+    color: var(--accent-color);
+}
+
+/* 14. Dark Mode Carousel Buttons */
+[data-theme="dark"] .carousel button {
+    background-color: #334155;
+    color: #F1F5F9;
+}
+
+[data-theme="dark"] .carousel button:hover {
+    background-color: #475569;
+}
+
+
+/* 15. Theme Toggle Button */
+#theme-toggle {
+    background-color: var(--card-background-color);
+    color: var(--text-color);
+    border: 1px solid var(--card-border-color);
+    border-radius: 8px;
+    padding: 0.5rem 1rem;
+    margin-top: 1rem;
+    font-family: inherit;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+#theme-toggle:hover {
+    background-color: var(--button-hover-color);
+}
+
+#theme-toggle:focus-visible {
+    outline: 2px solid var(--accent-color);
+    outline-offset: 3px;
 }
