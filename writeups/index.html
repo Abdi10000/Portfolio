@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en-US" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="My Hack The Box machine writeups and cybersecurity walkthroughs.">
+    <title>HTB Writeups | My Portfolio</title>
+    <link rel="stylesheet" href="../style.css">
+    <script src="../theme.js" defer></script>
+    <script src="writeups.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>My Portfolio</h1>
+        <nav aria-label="Main navigation">
+            <a href="../index.html">Home</a>
+            <a href="../about.html">About</a>
+            <a href="../blog/index.html">Blog</a>
+            <a href="../projects.html">Projects</a>
+            <a href="../certifications.html">Certifications</a>
+            <a href="./">HTB Writeups</a>
+            <a href="../contact.html">Contact</a>
+        </nav>
+        <!-- Theme Toggle -->
+        <button type="button" id="theme-toggle" aria-label="Switch to light mode">
+            Light Mode
+        </button>
+    </header>
+    <main>
+        <section id="writeups">
+            <h2>Hack The Box Writeups</h2>
+            <p>Explore my machine walkthroughs, techniques, and lessons learned.</p>
+            <!-- Writeup Search -->
+            <div class="writeup-search">
+                <label for="writeup-search-input">Search Machines</label>
+                <input
+                    type="search"
+                    id="writeup-search-input"
+                    placeholder="Search for a machine..."
+                    autocomplete="off"
+                >
+            </div>
+            <!-- Writeup Category Filters -->
+            <div class="writeup-filters" role="group" aria-label="Filter writeups by category">
+                <button type="button" class="filter-button active"
+                        data-category="all" aria-pressed="true">
+                    All
+                </button>
+                <button type="button" class="filter-button"
+                        data-category="starting-point" aria-pressed="false">
+                    Starting Point
+                </button>
+                <button type="button" class="filter-button"
+                        data-category="cpts-recommended" aria-pressed="false">
+                    CPTS Recommended
+                </button>
+                <button type="button" class="filter-button"
+                        data-category="cwes-recommended" aria-pressed="false">
+                    CWES Recommended
+                </button>
+                <button type="button" class="filter-button"
+                        data-category="active-directory" aria-pressed="false">
+                    Active Directory
+                </button>
+                <button type="button" class="filter-button"
+                        data-category="easy" aria-pressed="false">
+                    Easy
+                </button>
+                <button type="button" class="filter-button"
+                        data-category="medium" aria-pressed="false">
+                    Medium
+                </button>
+                <button type="button" class="filter-button"
+                        data-category="hard" aria-pressed="false">
+                    Hard
+                </button>
+                <button type="button" class="filter-button"
+                        data-category="insane" aria-pressed="false">
+                    Insane
+                </button>
+            </div>         
+            <!-- Writeup Cards -->
+            <div class="writeup-grid">
+                <!-- Meow -->
+                <article class="writeup-card" data-categories="starting-point">
+                    <h3>Meow</h3>
+                    <p>Starting Point - Tier 0</p>
+                    <p>Difficulty: Very Easy</p>
+                    <p>Operating System: Linux</p>
+                    <p>
+                        An introduction to network enumeration,
+                        Telnet, and basic security misconfigurations.
+                    </p>
+                    <a href="meow.html">Read Writeup</a>
+                </article>
+            </div>
+            <p id="no-writeups-message" hidden>
+                No matching writeups found. Try a different search or category.
+            </p>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; My Portfolio. All rights reserved.</p>
+    </footer>
+</body>
+</html>

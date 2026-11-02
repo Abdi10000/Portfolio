@@ -40,12 +40,16 @@ body {
 header {
     background-color: var(--header-footer-color);
     padding: 1em;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
 }
 
 header h1 {
     font-size: 2rem;
     font-weight: 700;
     margin: 0;
+    grid-column: 1 / -1;
 }
 
 nav {
@@ -256,11 +260,14 @@ footer {
     color: var(--text-color);
     border: 1px solid var(--card-border-color);
     border-radius: 8px;
-    padding: 0.5rem 1rem;
-    margin-top: 1rem;
+    padding: 0.35rem 0.5rem;
+    margin-top: 0;
     font-family: inherit;
-    font-size: 0.9rem;
+    font-size: 1rem;
     cursor: pointer;
+    display: block;
+    margin-left: 1rem;
+    line-height: 1.5;
 }
 
 #theme-toggle:hover {
@@ -270,4 +277,98 @@ footer {
 #theme-toggle:focus-visible {
     outline: 2px solid var(--accent-color);
     outline-offset: 3px;
+}
+
+
+/* 16. Writeup Category Filters */
+.writeup-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 1.5rem;
+}
+
+.filter-button {
+    background-color: var(--card-background-color);
+    color: var(--text-color);
+    border: 1px solid var(--card-border-color);
+    border-radius: 8px;
+    padding: 0.6rem 1rem;
+    font-family: inherit;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+.filter-button:hover {
+    background-color: var(--button-hover-color);
+}
+
+.filter-button.active {
+    background-color: var(--accent-color);
+    color: var(--background-color);
+}
+
+.filter-button:focus-visible {
+    outline: 2px solid var(--accent-color);
+    outline-offset: 3px;
+}
+
+
+/* 17. Writeup Cards */
+.writeup-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.writeup-card {
+    background-color: var(--card-background-color);
+    border: 1px solid var(--card-border-color);
+    border-radius: 12px;
+    padding: 1.5rem;
+}
+
+.writeup-card h3 {
+    margin-top: 0;
+}
+
+.writeup-card a {
+    color: var(--accent-color);
+}
+
+.writeup-card a:focus-visible {
+    outline: 2px solid var(--accent-color);
+    outline-offset: 3px;
+}
+
+
+/* HTB Writeups Search */
+.writeup-search {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 1.5rem;
+}
+
+.writeup-search label {
+    font-weight: 600;
+}
+
+.writeup-search input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    font-family: inherit;
+    font-size: 1rem;
+
+    background-color: var(--card-background-color);
+    color: var(--text-color);
+
+    border: 1px solid var(--card-border-color);
+    border-radius: 8px;
+}
+
+.writeup-search input:focus-visible {
+    outline: 2px solid var(--accent-color);
+    outline-offset: 2px;
 }
