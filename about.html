@@ -7,8 +7,11 @@
         <title>About Me | My Portfolio</title>
         <link rel="stylesheet" href="style.css">
         <script src="theme.js" defer></script>
+        <script src="background.js" defer></script>
     </head>
     <body>
+        <!-- Animated Background -->
+        <canvas id="background-canvas" aria-hidden="true"></canvas>
         <header>
             <h1>My Portfolio</h1>
             <nav aria-label="Main navigation">
@@ -20,15 +23,55 @@
                 <a href="writeups/index.html">HTB Writeups</a>
                 <a href="contact.html">Contact</a>
             </nav>
-            <!-- Theme Toggle -->
-            <button type="button" id="theme-toggle" aria-label="Switch to light mode">
-                Light Mode
-            </button>
+            <!-- Mobile Navigation -->
+            <details class="mobile-menu">
+                <summary>
+                    <span class="menu-open-label">☰ Menu</span>
+                    <span class="menu-close-label">✕ Close</span>
+                </summary>
+                <nav aria-label="Mobile navigation">
+                    <a href="index.html">Home</a>
+                    <a href="about.html">About</a>
+                    <a href="blog/index.html">Blog</a>
+                    <a href="projects.html">Projects</a>
+                    <a href="certifications.html">Certifications</a>
+                    <a href="writeups/index.html">HTB Writeups</a>
+                    <a href="contact.html">Contact</a>
+                </nav>
+            </details>
+            <!-- Theme Toggle Selector -->
+            <select id="theme-selector" aria-label="Choose website theme">
+                <option value="dark">Dark Mode</option>
+                <option value="light">Light Mode</option>
+                <option value="cyber">Cyber Mode</option>
+            </select>
         </header>
         <main>
-            <section>
+            <section id="about">
                 <h2>About Me</h2>
-                <p>My introduction will go here.</p>
+                <!-- Personal Introduction -->
+                <div class="about-card">
+                    <h3>My Story</h3>
+                    <p>
+                        My personal introduction will go here.
+                        This section will describe my journey into
+                        IT and cybersecurity, what sparked my interest,
+                        and what motivates me to keep learning.
+                    </p>
+                </div>
+                <!-- Professional Background -->
+                <div class="about-card">
+                    <h3>Professional Background</h3>
+                    <p>
+                        My professional experience includes IT support,
+                        IT administration, and IT security engineering.
+                    </p>
+                    <p>
+                        My technical interests include penetration testing,
+                        web application security, Active Directory security,
+                        and cloud security.
+                    </p>
+                </div>
             </section>
         </main>
         <footer>

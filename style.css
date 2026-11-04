@@ -111,17 +111,36 @@ footer {
         text-align: center;
     }
 
+    header {
+        grid-template-columns: 1fr auto;
+        gap: 0.75rem;
+    }
+
     header h1 {
-        text-align: center;
-        margin-bottom: 1rem;
+        grid-column: 1;
+        font-size: 1.5rem;
+        text-align: left;
+        margin: 0;
     }
 
     nav {
+        grid-column: 1 / -1;
         flex-direction: column;
+        align-items: stretch;
+        gap: 0.25rem;
     }
 
     nav a {
-        padding: 0.5rem 0.75rem;
+        padding: 0.65rem 0.75rem;
+        text-align: left;
+    }
+
+    #theme-selector {
+        grid-column: 2;
+        grid-row: 1;
+        margin-left: 0;
+        max-width: 100%;
+        font-size: 0.85rem;
     }
 }
 
@@ -254,33 +273,7 @@ footer {
 }
 
 
-/* 15. Theme Toggle Button */
-#theme-toggle {
-    background-color: var(--card-background-color);
-    color: var(--text-color);
-    border: 1px solid var(--card-border-color);
-    border-radius: 8px;
-    padding: 0.35rem 0.5rem;
-    margin-top: 0;
-    font-family: inherit;
-    font-size: 1rem;
-    cursor: pointer;
-    display: block;
-    margin-left: 1rem;
-    line-height: 1.5;
-}
-
-#theme-toggle:hover {
-    background-color: var(--button-hover-color);
-}
-
-#theme-toggle:focus-visible {
-    outline: 2px solid var(--accent-color);
-    outline-offset: 3px;
-}
-
-
-/* 16. Writeup Category Filters */
+/* 15. Writeup Category Filters */
 .writeup-filters {
     display: flex;
     flex-wrap: wrap;
@@ -314,7 +307,7 @@ footer {
 }
 
 
-/* 17. Writeup Cards */
+/* 16. Writeup Cards */
 .writeup-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
@@ -371,4 +364,220 @@ footer {
 .writeup-search input:focus-visible {
     outline: 2px solid var(--accent-color);
     outline-offset: 2px;
+}
+
+
+/* Cyber Mode Theme */
+[data-theme="cyber"] {
+    --background-color: #0A0F0D;
+    --text-color: #F3F4F6;
+    --header-footer-color: #171D1A;
+    --card-background-color: #171D1A;
+    --card-border-color: #35453C;
+    --accent-color: #4ADE80;
+    --button-hover-color: #263B2E;
+}
+
+
+/* Cyber Mode Buttons */
+[data-theme="cyber"] .carousel button {
+    background-color: #263B2E;
+    color: #4ADE80;
+}
+
+[data-theme="cyber"] .carousel button:hover {
+    background-color: #354D3B;
+}
+
+
+/* 17. Theme Selector */
+#theme-selector {
+    background-color: var(--card-background-color);
+    color: var(--text-color);
+    border: 1px solid var(--card-border-color);
+    border-radius: 8px;
+    padding: 0.35rem 0.5rem;
+    margin-left: 1rem;
+    font-family: inherit;
+    font-size: 1rem;
+    line-height: 1.5;
+    cursor: pointer;
+}
+
+#theme-selector:hover {
+    background-color: var(--button-hover-color);
+}
+
+#theme-selector:focus-visible {
+    outline: 2px solid var(--accent-color);
+    outline-offset: 3px;
+}
+
+
+/* 19. About Me Cards */
+.about-card {
+    background-color: var(--card-background-color);
+    border: 1px solid var(--card-border-color);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.about-card h3 {
+    margin-top: 0;
+}
+
+
+/* 20. Animated Background Canvas */
+#background-canvas {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Keep Website Content Above Animation */
+header,
+main,
+footer {
+    position: relative;
+    z-index: 1;
+}
+
+
+/* 22. Mobile Menu Open and Close Labels */
+
+/* Hide the Close label by default */
+.menu-close-label {
+    display: none;
+}
+
+/* Show Close when the menu is open */
+.mobile-menu[open] .menu-open-label {
+    display: none;
+}
+
+.mobile-menu[open] .menu-close-label {
+    display: inline;
+}
+
+
+/* 23. Desktop and Mobile Navigation Layout */
+
+/* Desktop: Hide the mobile menu */
+.mobile-menu {
+    display: none;
+}
+
+/* Desktop: Position navigation and theme selector */
+header > nav {
+    grid-column: 1;
+    grid-row: 2;
+}
+
+header > #theme-selector {
+    grid-column: 2;
+    grid-row: 2;
+    justify-self: end;
+    align-self: start;
+    margin-left: 0;
+    font-size: 0.85rem;
+    z-index: 1;
+}
+
+
+/* Mobile Layout */
+@media (max-width: 600px) {
+
+    /* Hide desktop navigation */
+    header > nav {
+        display: none;
+    }
+
+    header h1 {
+        grid-column: 1 / -1;
+        grid-row: 1;
+        text-align: center;
+        font-size: 1.5rem;
+        margin: 0;
+    }
+
+    /* Show collapsible mobile menu */
+    .mobile-menu {
+        display: block;
+        grid-column: 1 / -1;
+        grid-row: 2;
+        width: 100%;
+        min-width: 0;
+    }
+
+    /* Keep theme selector beside the title */
+    header > #theme-selector {
+        grid-column: 2;
+        grid-row: 2;
+        justify-self: end;
+        margin-left: 0;
+        font-size: 0.85rem;
+    }
+
+    /* Style the Menu / Close button */
+    .mobile-menu summary {
+        display: inline-block;
+        list-style: none;
+        cursor: pointer;
+        background-color: var(--card-background-color);
+        color: var(--text-color);
+        border: 1px solid var(--card-border-color);
+        border-radius: 8px;
+        padding: 0.5rem 0.75rem;
+        width: fit-content;
+        box-sizing: border-box;
+        position: relative;
+    }
+
+    /* Remove browser's default triangle */
+    .mobile-menu summary::-webkit-details-marker {
+        display: none;
+    }
+
+    .mobile-menu summary:focus-visible {
+        outline: 2px solid var(--accent-color);
+        outline-offset: 3px;
+    }
+
+    /* Style navigation links inside the opened menu */
+    .mobile-menu nav { 
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.25rem;
+        margin-top: 0.75rem;
+        padding: 0.5rem;
+        background-color: var(--card-background-color);
+        border: 1px solid var(--card-border-color);
+        border-radius: 8px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .mobile-menu nav a {
+        padding: 0.5rem 0.75rem;
+        text-align: left;
+    }
+}
+
+
+/* 24. Navigation Visibility Fix */
+
+/* Desktop: Show only desktop navigation */
+@media (min-width: 601px) {
+    header > .mobile-menu {
+        display: none;
+    }
+
+    header > nav {
+        display: flex;
+    }
 }
